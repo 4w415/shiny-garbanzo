@@ -1,0 +1,73 @@
+{
+  "name": "Gas Pricing",
+  "title": "Henry Hub Natural Gas Spot Price (Dollars per Million Btu)",
+  "resources": [
+    {
+      "path": "price_data/03-04-2020_annual.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "Date",
+            "type": "string"
+          },
+          {
+            "name": "Price",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "path": "price_data/03-04-2020_monthly.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "Date",
+            "type": "string"
+          },
+          {
+            "name": "Price",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "path": "price_data/03-04-2020_weekly.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "Date",
+            "type": "string"
+          },
+          {
+            "name": "Price",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "path": "price_data/03-04-2020_daily.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "Date",
+            "type": "string"
+          },
+          {
+            "name": "Price",
+            "type": "number"
+          }
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "EIA",
+      "path": "https://www.eia.gov/dnav/ng/hist/rngwhhdm.htm",
+      "title": "Natural Gas"
+    }
+  ]
+}
