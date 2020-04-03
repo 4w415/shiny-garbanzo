@@ -145,7 +145,7 @@ def scrap_monthly_data(url):
     bsObj = get_bsObj(url)
     for year in bsObj.select('td.B4'):
         for index, month in enumerate(year.find_next_siblings('td')):
-            date_string = '%s-%02d' % (year.text.strip(), index + 1)
+            date_string = '%s-%02d-01' % (year.text.strip(), index + 1)
             value = month.text.strip()
             if value:
                 data.append((date_string, float(value)))
