@@ -3,7 +3,7 @@
   "title": "Henry Hub Natural Gas Spot Price (Dollars per Million Btu)",
   "resources": [
     {
-      "path": "price_data/03-04-2020_annual.csv",
+      "path": "price_data/annual.csv",
       "schema": {
         "fields": [
           {
@@ -18,7 +18,7 @@
       }
     },
     {
-      "path": "price_data/03-04-2020_monthly.csv",
+      "path": "price_data/monthly.csv",
       "schema": {
         "fields": [
           {
@@ -33,7 +33,7 @@
       }
     },
     {
-      "path": "price_data/03-04-2020_weekly.csv",
+      "path": "price_data/weekly.csv",
       "schema": {
         "fields": [
           {
@@ -48,7 +48,7 @@
       }
     },
     {
-      "path": "price_data/03-04-2020_daily.csv",
+      "path": "price_data/daily.csv",
       "schema": {
         "fields": [
           {

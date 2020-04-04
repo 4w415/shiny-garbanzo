@@ -27,7 +27,7 @@ def get_params():
     args = parser.parse_args()
 
     INIT_URL = args.url if INIT_URL != args.url else INIT_URL
-    if not args.prefix.endswith(('_', '-')):
+    if not args.prefix.endswith(('_', '-', '/')):
         args.prefix += '_'
     return args
 
@@ -93,7 +93,7 @@ def scrap_daily_data(url):
     bsObj = get_bsObj(url)
     for week in bsObj.select('td.B6'):
         start, end, month, modulus = 0, 0, None, None
-        year = week.text.strip().split(' ')[0]
+        year = int(week.text.strip().split(' ')[0])
         week_range = [x.strip() for x in week.text.strip().split('to')]
 
         if len(week_range) >= 2:
@@ -110,12 +110,20 @@ def scrap_daily_data(url):
             offset = len(days) - end - 1
             modulus = start + offset
 
+        month_incremented = False
         for index, day in enumerate(days):
             date = start + index
             if modulus and date > modulus:
                 date = date % modulus
-                month += 1
-            date_string = '%s-%02d-%02d' % (year, month, date)
+                if not month_incremented:
+                    month_incremented = True
+                    if month + 1 > 12:
+                        month = 1
+                        year += 1
+                    else:
+                        month += 1
+
+            date_string = '%d-%02d-%02d' % (year, month, date)
             value = day.text.strip()
             if value and value != 'NA':
                 data.append((date_string, float(value)))
